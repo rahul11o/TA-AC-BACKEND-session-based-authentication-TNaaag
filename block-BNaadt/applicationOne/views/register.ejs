@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="/stylesheets/header.css" />
+    <link rel="stylesheet" href="/stylesheets/register.css" />
+  </head>
+  <body>
+    <%-include("partials/header")-%>
+    <h2>User Registration Form</h2>
+
+    <form action="/users/register" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <% if(err){%>
+      <p class="red"><%= err%></p>
+
+      <%}%>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
+
+      <label for="phone">Phone:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{10}"
+        placeholder="e.g., 1234567890"
+        required
+      />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <%-include("partials/footer")-%>
+  </body>
+</html>
